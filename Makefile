@@ -49,6 +49,8 @@ all: ${COMPILER}/uart_echo.axf
 clean:
 	@rm -rf ${COMPILER} ${wildcard *~}
 
+install:
+	jlink.exe burn.txt
 #
 # The rule to create the target directory.
 #

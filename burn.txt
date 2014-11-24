@@ -1,0 +1,8 @@
+r
+h
+speed 1200
+exec device=stm32f103ze
+loadbin gcc\uart_echo.bin 0x08000000
+r
+g
+qc
