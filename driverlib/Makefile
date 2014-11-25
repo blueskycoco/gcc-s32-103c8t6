@@ -96,7 +96,7 @@ ${COMPILER}/libdriver.a: ${COMPILER}/stm32f10x_spi.o
 ${COMPILER}/libdriver.a: ${COMPILER}/stm32f10x_tim.o
 ${COMPILER}/libdriver.a: ${COMPILER}/stm32f10x_usart.o
 ${COMPILER}/libdriver.a: ${COMPILER}/stm32f10x_wwdg.o
-CFLAGSgcc=-DUSE_STDPERIPH_DRIVER  -DSTM32F10X_HD
+CFLAGSgcc=-DUSE_STDPERIPH_DRIVER  -DSTM32F10X_MD
 #
 # Include the automatically generated dependency files.
 #

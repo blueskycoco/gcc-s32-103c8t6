@@ -60,14 +60,14 @@ ${COMPILER}:
 #
 # Rules for building the uart_echo example.
 #
-${COMPILER}/uart_echo.axf: ${COMPILER}/startup_${COMPILER}.o
+${COMPILER}/uart_echo.axf: ${COMPILER}/startup_${COMPILER}_103c8t6.o
 ${COMPILER}/uart_echo.axf: ${COMPILER}/system_stm32f10x.o
 ${COMPILER}/uart_echo.axf: ${COMPILER}/uart_echo.o
 ${COMPILER}/uart_echo.axf: ${ROOT}/driverlib/${COMPILER}/libdriver.a
 ${COMPILER}/uart_echo.axf: uart_echo.ld
 SCATTERgcc_uart_echo=uart_echo.ld
 ENTRY_uart_echo=ResetISR
-CFLAGSgcc=-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD
+CFLAGSgcc=-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD
 
 #
 # Include the automatically generated dependency files.
