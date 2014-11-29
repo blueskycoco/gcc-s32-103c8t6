@@ -21,7 +21,7 @@ void delay(int times)
 	volatile long i,j;
 	int m;
 	for(m=0;m<times;m++)
-		for(i=0;i<100000;i++)
+		for(i=0;i<10;i++)
 			j=0;
 }
 void delay_ms(int times)
@@ -172,13 +172,15 @@ void Lcd_Init(void)
 	delay(10);
 }
 
-void hanzi_Disp(uchar x,uchar y,uchar *s)
+void hanzi_Disp(uchar x,uchar y,uchar *s,int len)
 {
+	int tmp_len=len;
 	Lcd_WriteCmd(addr_tab[8*x+y]);  
-	while(*s>0)
+	while(tmp_len>0)
 	{
 		Lcd_WriteData(*s);    
-		s++;   
+		s++;
+		tmp_len--;
 	}
 }
 //*****************************************************************************
@@ -191,20 +193,26 @@ main(void)
 {
 	//led_init();
 	//unsigned char buf[20]={0xb0,0xa1,0xb0,0xa2,0xb0,0xa3,0xb0,0xa4,0xb0,0xa5,0xb0,0xa6,0xb0,0xa7,0xb0,0xa8,0xb0,0xa9,0xb0,0xaa};
-	//unsigned char buf1[20]={'ÔøΩ?,'ÔøΩ?};
+	//unsigned char buf1[20]={'Ôø?,'Ôø?};
 	Lcd_Init();
-	hanzi_Disp(0,0,"adbcde");
+	hanzi_Disp(0,0,"Œ‰∫∫¥Û—ß",8);
 	//
 	// Loop forever echoing data through the UART.
 	//
 	while(1)
 	{
 		//Lcd_Init();
-		hanzi_Disp(0,0,"ffffgg");
+		hanzi_Disp(0,0,"±±æ©¥Û—ßŒ‰∫∫¥Û—ß",16);
+		hanzi_Disp(1,0,"±±æ©¥Û—ßŒ‰∫∫¥Û—ß",16);
+		hanzi_Disp(2,0,"±±æ©¥Û—ßŒ‰∫∫¥Û—ß",16);
+		hanzi_Disp(3,0,"±±æ©¥Û—ßŒ‰∫∫¥Û—ß",17);
 		//GPIO_SetBits(GPIOC, GPIO_Pin_13);
-		delay(10);
-		hanzi_Disp(0,0,"abcdefghijkm");
+		delay(100000);
+		hanzi_Disp(0,0,"∞◊»’“¿…Ωæ°ª∆∫”»Î∫£¡˜",16);
+		hanzi_Disp(1,0,"”˚«Ó«ß¿Ôƒø∏¸…œ“ª≤„¬•",16);
+		hanzi_Disp(2,0,"",16);
+		hanzi_Disp(3,0,"±±æ©¥Û—ßŒ‰∫∫¥Û—ß",17);
 		//GPIO_ResetBits(GPIOC, GPIO_Pin_13);
-		delay(10);
+		delay(100000);
 	}
 }
